@@ -1,6 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fafafa;
-  color: var(--black);
 }
 
 h2 {
@@ -80,9 +83,8 @@ label[for="toggle-menu"] {
 }
 
 .header-2 .menu ul li + li {
-  border-top: 1px solid #323232;
+  border-top: 1px solid var(--dark-gray);
   padding-top: 24px;
-  /* overflow: hidden; */
 }
 
 #toggle-menu:checked ~ .menu {
@@ -93,8 +95,13 @@ label[for="toggle-menu"] {
   .header-1 {
     display: block;
     padding: 4px 48px;
-    font-size: 14px;
+    font-size: 12px;
     background-color: var(--brown);
+  }
+
+  .header-1 a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .header-2 {
@@ -367,6 +374,7 @@ label[for="toggle-menu"] {
 @media screen and (min-width: 768px) {
   .travel-packages .container {
     padding: 0 48px;
+    max-width: 1348px;
   }
 
   .travel-packages .packages-container {
@@ -470,7 +478,13 @@ label[for="toggle-menu"] {
 /* COMMENTS */
 .comments {
   padding: 64px 24px;
+  color: var(--white);
   text-align: center;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+    url(../images/gallery/jordania/jordania-03.jpg);
+  background-size: cover;
+  background-position: center 60%;
 }
 
 .comments .container > p {
@@ -502,7 +516,15 @@ label[for="toggle-menu"] {
 
 @media screen and (min-width: 768px) {
   .comments {
-    padding: 64px 48px;
+    padding: 104px 48px;
+  }
+
+  .comments .container > h2 {
+    margin-bottom: 16px;
+  }
+
+  .comments .container > p {
+    margin-bottom: 64px;
   }
 
   .comments .comments-container {
