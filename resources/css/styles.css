@@ -86,7 +86,6 @@ h2 {
 }
 
 .hero h1 {
-  max-width: 800px;
   font-size: 36px;
 }
 
@@ -98,23 +97,47 @@ h2 {
 
 .hero .action a {
   display: inline-block;
-  padding: 16px 24px;
+  padding: 12px 24px;
   background-color: var(--orange);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
   white-space: nowrap;
-
+  
   border-radius: 24px;
   transition: filter 0.2s;
 }
 
+.hero .action a:focus, 
 .hero .action a:hover {
   filter: brightness(1.1);
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
 }
 
 .hero .action a + a {
   background-color: var(--brown);
+}
+
+.hero .action a + a:focus,
+.hero .action a + a:hover {
+  background-color: var(--brown);
+  outline: 2px solid var(--brown);
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 65vh;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+    max-width: 600px;
+  }
+
+  .hero .action {
+    flex-direction: row;
+  }
 }
 
 /* PACOTES DE VIAGEM */
@@ -167,6 +190,7 @@ h2 {
 .package h3 {
   font-size: 32px;
   margin-bottom: 8px;
+  white-space: nowrap;
 }
 
 .package header strong {
@@ -323,25 +347,24 @@ h2 {
   position: relative;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .gallery figure a {
   position: absolute;
-  padding: 16px 24px;
+  padding: 8px 16px;
 
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 
-  border-radius: 8px;
+  border-radius: 8px 0 0 0;
 
   background-color: var(--orange);
   color: var(--white);
 
-  opacity: 0;
   transition: filter 0.2s, opacity 0.2s;
 }
 
@@ -361,8 +384,22 @@ h2 {
   filter: brightness(0.5);
 }
 
-.gallery figure:hover a {
-  opacity: 1;
+
+@media screen and (min-width: 768px) {
+  .gallery figure {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gallery figure a {
+    padding: 16px 24px;
+    border-radius: 8px;
+    opacity: 0;
+  }
+  
+  .gallery figure:hover a {
+    opacity: 1;
+  }
 }
 
 /* COMMENTS */
