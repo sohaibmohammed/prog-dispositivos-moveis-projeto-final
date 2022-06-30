@@ -97,7 +97,8 @@ label[for="toggle-menu"] {
 
 /* 
   Quando o input estiver marcado (:checked) desloca o menu para dentro da tela (Mostra o menu)
-  O combinador ~ seleciona os nós que seguem (não necessariamente imediatamente) o elemento especificado anteriormente, se ambos os elementos compartilham o mesmo pai. (MDN Web Docs - Mozilla)
+  O combinador ~ seleciona os nós que seguem (não necessariamente imediatamente) o elemento especificado anteriormente, 
+  se ambos os elementos compartilham o mesmo pai. (MDN Web Docs - Mozilla)
 */
 #toggle-menu:checked ~ .menu {
   transform: translateX(0);
@@ -140,6 +141,7 @@ label[for="toggle-menu"] {
     gap: 48px;
   }
 
+  /* Adiciona uma borda no topo de toda li que tiver uma li antes */ 
   .header-2 .menu ul li + li {
     border-top: none;
     padding-top: 0;
@@ -151,6 +153,7 @@ label[for="toggle-menu"] {
   margin-bottom: 64px;
   padding: 24px;
   height: 85vh;
+  /* Aplica uma camada de gradient sobre a imagem */
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
     url(../images/hero/turquia.jpg);
   background-size: cover;
@@ -192,12 +195,17 @@ label[for="toggle-menu"] {
   transition: filter 0.2s;
 }
 
+/* Aplica o estilo quando o usuario passar o mause ou dar foco no botao */
 .hero .action a:focus, 
 .hero .action a:hover {
+  /* Deixa o botao um pouco mais claro (mais luz) */
   filter: brightness(1.1);
+  /* Altera os estilos do outline */
   outline: 2px solid var(--orange);
+  /* Altera o espaçamento entre o elemento e a borda */
   outline-offset: 2px;
 }
+
 
 .hero .action a + a {
   background-color: var(--brown);
@@ -389,7 +397,6 @@ label[for="toggle-menu"] {
 
   .travel-packages .container {
     padding: 0 48px;
-    max-width: 1348px;
   }
 
   .travel-packages .packages-container {
@@ -416,13 +423,84 @@ label[for="toggle-menu"] {
   }
 }
 
-/* GALLERY */
-.gallery {
-  text-align: center;
+@media screen and (min-width: 1024px) {
+  .travel-packages .packages-container .container {
+    max-width: 1348px;
+  }
 }
 
-.gallery p {
+/* COMMENTS */
+.comments {
+  padding: 64px 24px;
+  color: var(--white);
+  text-align: center;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
+    url(../images/gallery/jordania/jordania-03.jpg);
+  background-size: cover;
+  background-position: center 60%;
+}
+
+.comments .container > p {
   margin-bottom: 24px;
+}
+
+.comments .comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.comments .comments-container blockquote {
+  flex: 1;
+}
+
+.comments .comments-container blockquote img {
+  width: 45%;
+  border-radius: 50%;
+}
+
+.comments .comments-container blockquote p {
+  font-style: italic;
+}
+
+.comments .comments-container blockquote cite {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .comments {
+    padding: 104px 48px;
+  }
+
+  .comments .container > h2 {
+    margin-bottom: 16px;
+  }
+
+  .comments .container > p {
+    margin-bottom: 64px;
+  }
+
+  .comments .comments-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .comments .comments-container blockquote {
+    flex: 1 1 200px;
+  }
+}
+
+/* GALLERY */
+.gallery {
+  padding-top: 64px;
+  text-align: center;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.gallery h2 {
+  margin-bottom: 48px;
 }
 
 .gallery .row-gallary {
@@ -491,67 +569,19 @@ label[for="toggle-menu"] {
   }
 }
 
-/* COMMENTS */
-.comments {
-  padding: 64px 24px;
-  color: var(--white);
-  text-align: center;
-
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),
-    url(../images/gallery/jordania/jordania-03.jpg);
-  background-size: cover;
-  background-position: center 60%;
-}
-
-.comments .container > p {
-  margin-bottom: 24px;
-}
-
-.comments .comments-container {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.comments .comments-container blockquote {
-  flex: 1;
-}
-
-.comments .comments-container blockquote img {
-  width: 45%;
-  border-radius: 50%;
-}
-
-.comments .comments-container blockquote p {
-  font-style: italic;
-}
-
-.comments .comments-container blockquote cite {
-  font-weight: 600;
-}
-
-@media screen and (min-width: 768px) {
-  .comments {
-    padding: 104px 48px;
+@media screen and (min-width: 1024px) {
+  .gallery {
+    padding-top: 120px;
   }
 
-  .comments .container > h2 {
-    margin-bottom: 16px;
-  }
-
-  .comments .container > p {
-    margin-bottom: 64px;
-  }
-
-  .comments .comments-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .comments .comments-container blockquote {
-    flex: 1 1 200px;
+  .gallery h2 {
+    font-size: 48px;
+    max-width: 800px;
+    margin: 0 auto 48px;
   }
 }
+
+
 
 /* NEWSLETTER */
 .newsletter {
@@ -634,7 +664,11 @@ label[for="toggle-menu"] {
 }
 
 @media screen and (min-width: 1024px) {
+  .newsletter {
+    padding: 120px 48px;
+  }
   .newsletter .container {
+    max-width: 1000px;
     flex-direction: row;
     align-items: flex-start;
   }
