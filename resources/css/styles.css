@@ -8,7 +8,7 @@ body {
   background-color: var(--white-ice);
 }
 
-body.active {
+body.active-menu {
   overflow-y: hidden;
 }
 
@@ -38,11 +38,9 @@ h2 {
   text-decoration: none;
 }
 
-
 .header-2 {
   display: flex;
 }
-
 
 .header-1 .container,
 .header-2 .container {
@@ -75,7 +73,7 @@ h2 {
   font-size: 36px;
 }
 
-.button-menu {
+#button-menu {
   padding: 4px;
   background-color: transparent;
   border: 0;
@@ -85,7 +83,7 @@ h2 {
 }
 
 /* Menu mobile */
-.menu {
+#menu {
   position: absolute;
   top: 8vh;
   left: 0;
@@ -97,62 +95,77 @@ h2 {
   background-color: var(--black);
   /* Remove o menu da tela enquanto fechado  */
   transform: translateX(-120%);
-  transition: transform 0.5s;
+  transition: transform 0.2s;
 }
 
-.menu.active {
+#menu.active-menu {
   transform: translateX(0);
 }
 
 /* Itens do menu - links */
-.menu ul {
+#menu ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 /* Adiciona uma borda no topo de toda li que tiver uma li antes */
-.menu ul li + li {
+#menu ul li + li {
   border-top: 1px solid var(--dark-gray);
   padding-top: 24px;
 }
 
-.menu a {
+#menu a {
   padding: 8px 16px;
   transition: 0.3s;
-}
-
-.menu a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
 }
 
 @media screen and (min-width: 768px) {
   .header-1 {
     display: block;
-    padding: 4px 48px;
+    padding: 8px 48px;
     font-size: 12px;
     background-color: var(--brown);
   }
 
-  .header-1 a {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+  .header-1 a,
+  #menu a {
+    outline: none;
+    text-underline-offset: 4px;
   }
 
-  .header-2 {
+  .header-1 a {
+    padding: 2px 4px;
+    text-decoration: underline;
+  }
+
+  #menu {
     padding: 8px 48px;
   }
 }
 
 @media screen and (min-width: 800px) {
-  .button-menu {
+  .header-1 a:hover,
+  #menu a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+  .header-1 a:focus {
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 2px;
+  }
+
+  #menu a:focus {
+    text-decoration-color: var(--white);
+    text-decoration-thickness: 2px;
+    text-decoration: underline;
+  }
+
+  #button-menu {
     display: none;
   }
 
-  .menu {
+  #menu {
     position: static;
     width: 100%;
     height: 30px;
@@ -165,12 +178,12 @@ h2 {
     align-items: center;
   }
 
-  .menu ul {
+  #menu ul {
     flex-direction: row;
-    gap: 48px;
+    gap: 24px;
   }
 
-  .menu ul li + li {
+  #menu ul li + li {
     border-top: none;
     padding-top: 0;
   }
@@ -218,13 +231,13 @@ h2 {
   text-transform: uppercase;
   font-weight: 600;
   white-space: nowrap;
-  
+
   border-radius: 24px;
   transition: filter 0.2s;
 }
 
 /* Aplica o estilo quando o usuario passar o mause ou dar foco no botao */
-.hero .action a:focus, 
+.hero .action a:focus,
 .hero .action a:hover {
   /* Deixa o botao um pouco mais claro (mais luz) */
   filter: brightness(1.1);
@@ -233,7 +246,6 @@ h2 {
   /* Altera o espaçamento entre o elemento e a borda */
   outline-offset: 2px;
 }
-
 
 .hero .action a + a {
   background-color: var(--brown);
@@ -414,10 +426,6 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-.package button:hover {
-  filter: brightness(1.2);
-}
-
 @media screen and (min-width: 768px) {
   .travel-packages {
     margin-bottom: 120px;
@@ -454,6 +462,16 @@ h2 {
 @media screen and (min-width: 1024px) {
   .travel-packages .packages-container .container {
     max-width: 1348px;
+  }
+
+  .package button:hover,
+  .package button:focus {
+    /* Deixa o botao um pouco mais claro (mais luz) */
+    filter: brightness(1.2);
+    /* Altera os estilos do outline */
+    outline: 2px solid var(--orange);
+    /* Altera o espaçamento entre o elemento e a borda */
+    outline-offset: 2px;
   }
 }
 
@@ -556,15 +574,12 @@ h2 {
   letter-spacing: 0.5px;
 
   border-radius: 8px 0 0 0;
+  outline: none;
 
   background-color: var(--orange);
   color: var(--white);
 
   transition: filter 0.2s, opacity 0.2s;
-}
-
-.gallery figure a:hover {
-  filter: brightness(1.3);
 }
 
 .gallery figure img {
@@ -574,26 +589,16 @@ h2 {
   transition: transform 0.2s, filter 0.2s;
 }
 
-.gallery figure:hover img {
-  transform: scale(1.5);
-  filter: brightness(0.5);
-}
-
-
 @media screen and (min-width: 768px) {
   .gallery figure {
     align-items: center;
     justify-content: center;
   }
-  
+
   .gallery figure a {
     padding: 16px 24px;
     border-radius: 8px;
     opacity: 0;
-  }
-
-  .gallery figure:hover a {
-    opacity: 1;
   }
 }
 
@@ -607,9 +612,26 @@ h2 {
     max-width: 800px;
     margin: 0 auto 48px;
   }
+
+  .gallery figure {
+    flex: 1 1 20vw;
+  }
+
+  .gallery figure:focus-within a,
+  .gallery figure:hover a {
+    opacity: 1;
+  }
+
+  .gallery figure a:hover {
+    filter: brightness(1.3);
+  }
+
+  .gallery figure:focus-within img,
+  .gallery figure:hover img {
+    transform: scale(1.5);
+    filter: brightness(0.5);
+  }
 }
-
-
 
 /* NEWSLETTER */
 .newsletter {
@@ -734,6 +756,20 @@ h2 {
 .footer .copy {
   padding: 48px 24px;
   background-color: var(--brown);
+}
+
+.footer .copy a {
+  padding: 2px 4px;
+  outline: none;
+  color: var(--white);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+
+.footer .copy a:hover,
+.footer .copy a:focus {
+  text-decoration-color: var(--orange);
+  text-decoration-thickness: 2px;
 }
 
 .footer .copy p + p {

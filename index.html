@@ -42,9 +42,18 @@
           </div>
 
           <!-- ICONE DE MENU -->
-          <button class="button-menu">&#9776;</button>
+          <!-- Atributos 'ARIA' para melhorar a acessibilidade -->
+          <button
+            id="button-menu"
+            aria-label="Abrir menu" 
+            aria-expanded="false"
+            aria-controls="menu"
+            aria-haspopup="true"
+          >
+            &#9776;
+          </button>
 
-          <nav class="menu">
+          <nav id="menu" role="menu">
             <ul>
               <li>
                 <a class="menu-link" href="#travel-packages">Pacotes</a>
@@ -427,7 +436,7 @@
       </div>
 
       <div class="copy">
-        <p>Desenvolvido por Sohaib Mohammed</p>
+        <p>Desenvolvido por <a href="https://github.com/sohaibmohammed" target="_blank">Sohaib Mohammed</a></p>
         <p>
           Projejo final da disciplina de Programação para Dispositivos móveis do
           curso de Análise e Desernvolvimento de Sistemas da Faculdade Senac
