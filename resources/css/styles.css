@@ -478,6 +478,51 @@ h2 {
   }
 }
 
+/*----------------*/
+/*------FORM------*/
+/*----------------*/
+
+#comprar-agora {
+  width: 40%;
+  margin: 0 auto;
+}
+
+#comprar-agora label {
+  /* display: block; */
+  margin-bottom: 5px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+#comprar-agora input,
+#comprar-agora textarea,
+#comprar-agora select {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  border: 1px solid var(--orange);
+  font-size: 16px;
+  font: 1em sans-serif;
+}
+
+#comprar-agora button {
+  background-color: var(--orange);
+  border: none;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 48px;
+  color: #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s;
+  display: block;
+}
+
+#comprar-agora button:hover {
+  background-color: brown;
+}
+
 /* --------------- */
 /* --- COMMENTS -- */
 /* --------------- */
