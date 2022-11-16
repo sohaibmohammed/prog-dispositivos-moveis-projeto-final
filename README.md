@@ -12,3 +12,15 @@ Projeto final da disciplina de Programação para Dispositivos móveis do curso 
 
 - Link do projeto da github: https://github.com/sohaibmohammed/prog-dispositivos-moveis-projeto-final
 - Link do projeto publicado na Netlify: https://prog-dispositivos-moveis-projeto-final.netlify.app/
+
+## Atualizar projeto
+git add .
+
+git status
+
+git commit -m "comentarios"
+
+git push
+
+## Baixar projeto
+git pull
